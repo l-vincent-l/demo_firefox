@@ -51,9 +51,13 @@ call_journeys = function() {
             if (!section.geojson.hasOwnProperty("coordinates")) {
                 return;
             }
+            color = '#000';
+            if ("display_informations" in section && "color" in section.display_informations) {
+                color = "#"+section.display_informations.color;
+            }
             $.map(section.geojson.coordinates, function(point) { line_points.push([point[1], point[0]]); });
             var polyline_options = {
-                color: '#000'
+                color: color
             };
             L.polyline(line_points, polyline_options).addTo(map_);
         });
