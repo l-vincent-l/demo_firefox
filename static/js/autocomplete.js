@@ -57,7 +57,8 @@ call_journeys = function() {
             }
             $.map(section.geojson.coordinates, function(point) { line_points.push([point[1], point[0]]); });
             var polyline_options = {
-                color: color
+                color: color,
+                fillOpacity: 1.0
             };
             L.polyline(line_points, polyline_options).addTo(map_);
         });
@@ -70,7 +71,7 @@ $(document).ready(function () {
     autofunc("to", function(event, ui){to_ = ui.item.id; call_journeys();});
 
     L.mapbox.accessToken = 'pk.eyJ1IjoibC12aW5jZW50LWwiLCJhIjoiaDJfM05UMCJ9.l9oR075SSzJY9hXEqaRvoQ';
-    map_ = L.mapbox.map('map', 'examples.map-i86nkdio')
-    .setView([48.8, 2.3], 11);
+    map_ = L.mapbox.map('map', 'examples.map-20v6611k')
+    .setView([48.86, 2.35], 13);
 
 });

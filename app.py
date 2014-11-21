@@ -6,7 +6,7 @@ TOKEN = open('token').readline()
 
 class NavitiaRequest:
     navitia_token = TOKEN
-    base_url = "https://api.navitia.io/"
+    base_url = "http://api.navitia.io/"
     base_url_region = base_url+"v1/coverage/{}"
 
     @classmethod
