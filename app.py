@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 
 class NavitiaRequest:
-    navitia_token = 'mysecrettoken'
+    navitia_token = open('token').readline()
     base_url = "https://api.navitia.io/"
     base_url_region = base_url+"v1/coverage/{}"
 
