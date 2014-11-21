@@ -1,10 +1,11 @@
 from flask import Flask, request, url_for
 import requests, json
 app = Flask(__name__)
+TOKEN = open('token').readline()
 
 
 class NavitiaRequest:
-    navitia_token = open('token').readline()
+    navitia_token = TOKEN
     base_url = "https://api.navitia.io/"
     base_url_region = base_url+"v1/coverage/{}"
 
@@ -55,4 +56,5 @@ def static_proxy(path):
     return app.send_static_file(os.path.join('js', path))
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()
